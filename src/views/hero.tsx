@@ -1,5 +1,5 @@
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -31,22 +31,22 @@ const Hero = () => {
 
   return (
     <>
-      <span className="max-w-screen absolute left-0 top-60 -z-10 h-[800px] h-full w-full overflow-hidden opacity-10">
+      <span className="max-w-screen absolute left-0 top-60 -z-10 h-[800px] h-full w-full overflow-hidden opacity-[13%]">
         <motion.span
-          className="absolute left-0 h-full w-[20%] py-20"
+          className="absolute left-0 h-full w-[30%] py-20"
           initial={{ opacity: 0, rotate: -45 }}
           animate={{ opacity: 1, rotate: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 0, originY: 1 }}
         >
           <span className="absolute right-0 top-1/2 h-[800px] w-[800px] -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600 to-white blur-2xl dark:to-black" />
           <Image src="/hero-left.webp" alt="liquid illustration" fill />
         </motion.span>
         <motion.span
-          className="absolute right-0 h-full w-[20%] py-20"
+          className="absolute right-0 h-full w-[30%] py-20"
           initial={{ opacity: 0, rotate: 45 }}
           animate={{ opacity: 1, rotate: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 1, originY: 1 }}
         >
           <span className="absolute left-0 top-1/2 h-[800px] w-[800px] -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600 to-white blur-2xl dark:to-black" />
@@ -56,9 +56,9 @@ const Hero = () => {
 
       <motion.div
         className="flex min-h-[20rem] flex-col items-center justify-center gap-6 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <h1 className="max-w-[40rem] text-4xl font-bold sm:text-5xl">
           On-demand
@@ -84,7 +84,7 @@ const Hero = () => {
           initial={{ rotateX: 10 }}
           animate={{ rotateX: isAboveViewportBottom ? 0 : 10 }}
         >
-          <div className="flex w-full grow rounded-[2rem] bg-white/20 p-8 backdrop-blur-xl dark:bg-black/20">
+          <div className="flex w-full grow rounded-[2rem] bg-white/20 p-8 backdrop-blur-lg dark:bg-black/20">
             hey there
           </div>
         </motion.div>

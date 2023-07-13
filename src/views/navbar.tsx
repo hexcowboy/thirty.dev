@@ -24,8 +24,8 @@ const Navbar = ({}: Props) => {
         <IconLasso size={28} />
         <span className={twMerge("ml-2 text-2xl", font.className)}>Spur</span>
       </div>
-      <div className="max-w-screen relative flex flex-col items-center gap-4 overflow-hidden text-neutral-600 dark:text-neutral-400 sm:flex-row sm:gap-10">
-        <span className="absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600/10 to-white blur-2xl dark:to-black" />
+      <div className="relative flex flex-col items-center gap-4 text-neutral-600 dark:text-neutral-400 sm:flex-row sm:gap-10">
+        <span className="w-screen absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600/10 to-white blur-2xl dark:to-black" />
         <span>Features</span>
         <span>Pricing</span>
       </div>
