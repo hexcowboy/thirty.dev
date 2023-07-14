@@ -39,7 +39,6 @@ const Hero = () => {
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 0, originY: 1 }}
         >
-          <span className="absolute right-0 top-1/2 h-[800px] w-[800px] -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600 to-white blur-2xl dark:to-black" />
           <Image src="/hero-left.webp" alt="liquid illustration" fill />
         </motion.span>
         <motion.span
@@ -49,7 +48,6 @@ const Hero = () => {
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 1, originY: 1 }}
         >
-          <span className="absolute left-0 top-1/2 h-[800px] w-[800px] -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600 to-white blur-2xl dark:to-black" />
           <Image src="/hero-right.webp" alt="liquid illustration" fill />
         </motion.span>
       </span>

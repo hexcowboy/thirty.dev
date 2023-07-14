@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 import Hero from "@/views/hero";
 import Navbar from "@/views/navbar";
+import Pricing from "@/views/pricing";
 import TrustedBy from "@/views/trusted-by";
 
 const font = Inter({
@@ -16,6 +17,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <TrustedBy />
+        <Pricing />
       </main>
     </span>
   );
