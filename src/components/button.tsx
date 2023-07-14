@@ -9,7 +9,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const variants = {
   primary: "bg-black text-white dark:bg-white dark:text-black",
   secondary: "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white",
-  green: "bg-green-600 text-white dark:text-white",
+  green: "bg-green-500 text-white dark:text-white",
 };
 
 const Button = ({ variant = "primary", ...props }: Props) => {

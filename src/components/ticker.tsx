@@ -95,8 +95,25 @@ const Ticker = ({
     }
   }, [isInView, isPlaying, animationControlsRef]);
 
+  const handleMouseEnter = () => {
+    if (animationControlsRef.current) {
+      animationControlsRef.current.pause();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (animationControlsRef.current) {
+      animationControlsRef.current.play();
+    }
+  };
+
   return (
-    <div className="h-full w-full overflow-hidden" ref={tickerRef}>
+    <div
+      className="h-full w-full overflow-hidden"
+      ref={tickerRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div ref={scope} className="flex">
         {children.map((item, index) => (
           <div key={index} ref={(ref) => (childRefs.current[index] = ref)}>
