@@ -46,7 +46,7 @@ const FAQ = () => {
           FAQ
         </h2>
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
-          Learn our secrets
+          Get to know us
         </h1>
         <p className="mt-2 text-neutral-500">
           Let&apos;s be upfront about how we work.

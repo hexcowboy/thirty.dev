@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import FAQ from "@/views/faq";
 import Features from "@/views/features";
 import Hero from "@/views/hero";
+import Ideas from "@/views/ideas";
 import Navbar from "@/views/navbar";
 import Pricing from "@/views/pricing";
 import TrustedBy from "@/views/trusted-by";
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <TrustedBy />
         <Features />
+        <Ideas />
         <Pricing />
         <FAQ />
       </main>

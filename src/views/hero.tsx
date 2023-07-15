@@ -1,33 +1,18 @@
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 import Button from "@/components/button";
 
-function isElementAboveViewportBottom(element: HTMLElement): boolean {
-  const rect = element.getBoundingClientRect();
-  return rect.bottom <= window.innerHeight;
-}
-
 const Hero = () => {
   const animationRef = useRef(null);
-  const [isAboveViewportBottom, setIsAboveViewportBottom] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (animationRef.current) {
-        setIsAboveViewportBottom(
-          isElementAboveViewportBottom(animationRef.current)
-        );
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: animationRef,
+    offset: ["start 0.8", 0.8],
+  });
+  const rotateX_ = useTransform(scrollYProgress, [0, 1], [14, 0]);
+  const rotateX = useSpring(rotateX_, { stiffness: 400, damping: 90 });
 
   return (
     <>
@@ -79,12 +64,9 @@ const Hero = () => {
       <div style={{ perspective: 800 }} ref={animationRef}>
         <motion.div
           className="flex min-h-[30rem] flex-col items-center justify-center gap-6 rounded-[2rem] border border-neutral-300 p-2 text-center dark:border-neutral-700"
-          initial={{ rotateX: 10 }}
-          animate={{ rotateX: isAboveViewportBottom ? 0 : 10 }}
+          style={{ rotateX }}
         >
-          <div className="flex w-full grow rounded-[2rem] bg-white/20 p-8 backdrop-blur-lg dark:bg-black/20">
-            hey there
-          </div>
+          <div className="flex w-full grow rounded-[2rem] bg-white/20 p-8 backdrop-blur-lg dark:bg-black/20"></div>
         </motion.div>
       </div>
     </>
