@@ -1,20 +1,23 @@
-import { useInView } from "framer-motion";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import Ticker from "@/components/ticker";
 
 const TrustedBy = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: [1.2, 0.8],
+  });
+  const scale_ = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const scale = useSpring(scale_, { damping: 10, stiffness: 100 });
 
   return (
     <motion.div
       className="my-4 flex flex-col items-center gap-8"
       ref={ref}
-      initial={{ scale: 0 }}
-      animate={isInView ? { scale: 1 } : { scale: 0 }}
       transition={{ duration: 0.5 }}
+      style={{ scale }}
     >
       <div className="text-2xl text-neutral-500">Trusted by</div>
       <div className="relative w-screen">

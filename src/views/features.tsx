@@ -28,8 +28,8 @@ const Features = () => {
         animate={isInView ? { y: 0, scale: 1 } : { y: 20, scale: 0.9 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <div className="grid h-[400px] rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900 sm:col-span-2 sm:grid-cols-2">
-          <span className="relative m-12 sm:order-last">
+        <div className="grid min-h-[400px] rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900 sm:col-span-2 sm:grid-cols-2">
+          <span className="relative m-12 sm:order-last min-h-[200px]">
             <Image src="/torus.webp" alt="Torus" fill />
           </span>
           <div className="flex flex-col items-center justify-center gap-2 p-4 text-center">

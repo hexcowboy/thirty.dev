@@ -1,4 +1,4 @@
-import { IconBrandCashapp, IconCheck } from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -47,7 +47,7 @@ const Pricing = () => {
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
           Don&apos;t pay another salary
         </h1>
-        <p className="mt-2 text-neutral-500">
+        <p className="mt-2 text-neutral-500 text-center">
           Pre-pay for dev work and pause any time you&apos;re not using it.
         </p>
       </span>
@@ -60,7 +60,7 @@ const Pricing = () => {
       </div>
 
       <motion.div
-        className="grid w-full max-w-[800px] grid-cols-1 gap-4 sm:grid-cols-2"
+        className="grid w-full max-w-[800px] grid-cols-1 gap-12 sm:gap-4 sm:grid-cols-2"
         ref={ref}
         animate={isInView ? { y: 0, scale: 1 } : { y: 20, scale: 0.9 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}

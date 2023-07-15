@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useSpring, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
@@ -9,17 +9,21 @@ const Ideas = () => {
     offset: [1.2, 0.8],
   });
   const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
-  const offset1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const offset2 = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const offset3 = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const offset4 = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const offset1_ = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const offset1 = useSpring(offset1_,{ stiffness: 400, damping: 90 });
+  const offset2_ = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const offset2 = useSpring(offset2_,{ stiffness: 400, damping: 90 });
+  const offset3_ = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const offset3 = useSpring(offset3_,{ stiffness: 400, damping: 90 });
+  const offset4_ = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const offset4 = useSpring(offset4_,{ stiffness: 400, damping: 90 });
 
   return (
     <div
-      className="my-40 grid w-full flex-col items-center gap-12 sm:grid-cols-2"
+      className="sm:my-40 grid w-full flex-col items-center gap-12 sm:grid-cols-2"
       ref={pageRef}
     >
-      <div className="relative flex items-center justify-center">
+      <div className="relative flex items-center justify-center sm:scale-100 scale-75 min-h-[300px]">
         <motion.div
           className="absolute rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900"
           style={{ x: offset1, opacity }}
