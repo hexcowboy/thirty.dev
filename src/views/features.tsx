@@ -37,7 +37,7 @@ const Features = () => {
               Task Queue
             </h4>
             <h4 className="text-2xl font-bold sm:text-4xl">
-              Don&apos;t change your workflow
+              Keep your workflow
             </h4>
             <p className="text-neutral-500">
               We work just like any other proficient team. Drop some tasks in

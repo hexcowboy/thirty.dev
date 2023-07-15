@@ -1,8 +1,8 @@
-import {
-  IconBrandCashapp,
-  IconCheck, // IconX
-} from "@tabler/icons-react";
+import { IconBrandCashapp, IconCheck } from "@tabler/icons-react";
+import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { useRef } from "react";
 
 // import { twMerge } from "tailwind-merge";
 import { Badge } from "@/components/badge";
@@ -27,6 +27,8 @@ import { Switch } from "@/components/switch";
 // };
 
 const Pricing = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   // const [isSupabaseChecked, setIsSupabaseChecked] = useState(false);
   // const [isEthereumChecked, setIsEthereumChecked] = useState(false);
   const [isYearlyPayment, setIsYearlyPayment] = useState(true);
@@ -43,7 +45,7 @@ const Pricing = () => {
           Pricing
         </h2>
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
-          Get full value of every dollar
+          Don&apos;t pay another salary
         </h1>
         <p className="mt-2 text-neutral-500">
           Pre-pay for dev work and pause any time you&apos;re not using it.
@@ -57,7 +59,12 @@ const Pricing = () => {
         </span>
       </div>
 
-      <div className="grid w-full max-w-[800px] grid-cols-1 gap-4 sm:grid-cols-2">
+      <motion.div
+        className="grid w-full max-w-[800px] grid-cols-1 gap-4 sm:grid-cols-2"
+        ref={ref}
+        animate={isInView ? { y: 0, scale: 1 } : { y: 20, scale: 0.9 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
         <PricingCard
           title="Standard"
           price={`$${standardPrice.toLocaleString()}/mo`}
@@ -165,7 +172,7 @@ const Pricing = () => {
         {/*     </div> */}
         {/*   </div> */}
         {/* </div> */}
-      </div>
+      </motion.div>
     </div>
   );
 };

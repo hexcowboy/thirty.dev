@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
+import FAQ from "@/views/faq";
+import Features from "@/views/features";
 import Hero from "@/views/hero";
 import Navbar from "@/views/navbar";
-import Features from "@/views/features";
 import Pricing from "@/views/pricing";
 import TrustedBy from "@/views/trusted-by";
 
@@ -14,12 +15,13 @@ const font = Inter({
 export default function Home() {
   return (
     <span className={twMerge("flex flex-col items-center", font.className)}>
-      <main className="flex w-full max-w-[1200px] flex-col gap-16 px-8 py-12 sm:px-12">
+      <main className="flex w-full max-w-[1200px] flex-col gap-32 px-8 py-12 sm:px-12">
         <Navbar />
         <Hero />
         <TrustedBy />
         <Features />
         <Pricing />
+        <FAQ />
       </main>
     </span>
   );

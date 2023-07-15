@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: #fff;
+    color: #000;
+  }
+}

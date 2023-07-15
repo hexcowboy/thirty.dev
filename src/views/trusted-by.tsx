@@ -10,7 +10,7 @@ const TrustedBy = () => {
 
   return (
     <motion.div
-      className="my-16 flex flex-col items-center gap-8"
+      className="my-4 flex flex-col items-center gap-8"
       ref={ref}
       initial={{ scale: 0 }}
       animate={isInView ? { scale: 1 } : { scale: 0 }}
