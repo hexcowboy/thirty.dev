@@ -63,10 +63,18 @@ const Hero = () => {
 
       <div style={{ perspective: 800 }} ref={animationRef}>
         <motion.div
-          className="flex min-h-[30rem] flex-col items-center justify-center gap-6 rounded-[2rem] border border-neutral-300 p-2 text-center dark:border-neutral-700"
+          className="flex flex-col items-center justify-center gap-6 rounded-[2rem] border border-neutral-300 p-2 text-center dark:border-neutral-700"
           style={{ rotateX }}
         >
-          <div className="flex w-full grow rounded-[2rem] bg-white/20 p-8 backdrop-blur-lg dark:bg-black/20"></div>
+          <div className="flex w-full grow rounded-[2rem] bg-white/20 backdrop-blur-lg dark:bg-black/20">
+            <Image
+              src="/kanban.svg"
+              alt="kanban illustration"
+              height={1024}
+              width={576}
+              className="h-full min-h-[30rem] w-full object-cover md:object-contain"
+            />
+          </div>
         </motion.div>
       </div>
     </>

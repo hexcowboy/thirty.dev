@@ -7,34 +7,55 @@ import {
 
 const faqs = [
   {
-    question: "Will you work on my existing project?",
-    answer:
-      "No. We only work on new projects or projects started by us. We do this to ensure that we can deliver code that we're proud of.",
+    question: "How does this work?",
+    answer: (
+      <>
+        Here is the general workflow after you purchase a subscription:
+        <ol className="my-2 ml-8 list-outside list-decimal marker:text-neutral-500">
+          <li>We send you a Trello board.</li>
+          <li>
+            You add tasks in the board including a link to your design and any
+            images or assets.
+          </li>
+          <li>We work on your tasks from top to bottom.</li>
+          <li>You get an email when a task has been completed.</li>
+        </ol>
+        Our speed and quality are attributed to the absence of meetings or
+        unnecessary back-and-forths. In the event that you require changes after
+        a request has been completed, you can conveniently add a new request to
+        the queue.
+      </>
+    ),
   },
   {
-    question: "Can you work on backend tasks?",
+    question: "How does pausing work?",
     answer:
-      "In the future we are planning to offer Supabase as a backend. Currently we don't offer backend services.",
+      "You may pause your subscription at any time. We will stop working on your task queue and you will not be billed. You may resume your subscription at any time and we'll begin working where we left off.",
   },
   {
-    question: "What if I don't like the code?",
+    question: "Why don't you work on existing project?",
+    answer:
+      "We only work on projects started by us. We do this to ensure we can deliver fast without having to navigate an unfamiliar codebase.",
+  },
+  {
+    question: "Why don't you offer backend services?",
+    answer:
+      "In the future we are planning to offer Supabase as a backend. Currently we don't offer backend services due to complexity.",
+  },
+  {
+    question: "What if I'm not satisfied with a completed request?",
     answer:
       "Submit a new request in the queue specifying what you don't like. The feedback loop is a typical workflow for us and we won't be offended if you want things a different way.",
   },
   {
     question: "How long will it take to get my project done?",
     answer:
-      "It's counter-productive for us to give accurate estimates. We work on your project every weekday. Typically landing pages take five weekdays, but this depends on the complexity of the design provided.",
+      "Estimates vary depending on request complexity. We work on your project every business day. Typically landing pages take five business days.",
   },
   {
-    question: "Do you offer design services?",
+    question: "Why don't you offer design services?",
     answer:
-      "No. We expect you to provide use with a design. We take all forms of designs including Figma, Adobe, Sketch, Framer, and more. We will even work off your notepad scratches if that's how you roll.",
-  },
-  {
-    question: "How does pausing work?",
-    answer:
-      "You can pause your subscription at any time. We will stop working on your task queue and you will not be billed. You can resume your subscription at any time.",
+      "We are engineers, not designers. Please come with a design handy. We take all forms of designs including Figma, Adobe, Sketch, Framer, and more. We will even work off your notepad scratches if that's how you roll.",
   },
 ];
 

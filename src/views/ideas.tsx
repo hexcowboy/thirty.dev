@@ -2,6 +2,11 @@ import { useScroll, useSpring, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
+const springParams = {
+  stiffness: 400,
+  damping: 90,
+};
+
 const Ideas = () => {
   const pageRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -10,20 +15,17 @@ const Ideas = () => {
   });
   const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
   const offset1_ = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const offset1 = useSpring(offset1_, { stiffness: 400, damping: 90 });
+  const offset1 = useSpring(offset1_, springParams);
   const offset2_ = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const offset2 = useSpring(offset2_, { stiffness: 400, damping: 90 });
+  const offset2 = useSpring(offset2_, springParams);
   const offset3_ = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const offset3 = useSpring(offset3_, { stiffness: 400, damping: 90 });
+  const offset3 = useSpring(offset3_, springParams);
   const offset4_ = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const offset4 = useSpring(offset4_, { stiffness: 400, damping: 90 });
+  const offset4 = useSpring(offset4_, springParams);
 
   return (
-    <div
-      className="grid w-full flex-col items-center gap-12 sm:my-40 sm:grid-cols-2"
-      ref={pageRef}
-    >
-      <div className="relative flex min-h-[300px] scale-75 items-center justify-center sm:scale-100">
+    <div className="grid w-full gap-12 sm:my-40 sm:grid-cols-2" ref={pageRef}>
+      <div className="relative order-last flex min-h-[300px] scale-75 items-center justify-center sm:order-first sm:scale-100">
         <motion.div
           className="absolute rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900"
           style={{ x: offset1, opacity }}
@@ -46,7 +48,7 @@ const Ideas = () => {
           className="absolute rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900"
           style={{ y: offset4, opacity }}
         >
-          <p className="text-3xl font-bold">Forms</p>
+          <p className="text-3xl font-bold">AI Chat</p>
         </motion.div>
       </div>
 
@@ -57,7 +59,7 @@ const Ideas = () => {
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
           We love building
         </h1>
-        <p className="mt-2 text-neutral-500">
+        <p className="mt-2 text-center text-neutral-500 sm:text-left">
           Any frontend task you wish to give us, we&apos;re happy to build it.
         </p>
       </span>

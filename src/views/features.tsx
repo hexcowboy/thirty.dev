@@ -29,7 +29,7 @@ const Features = () => {
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <div className="grid min-h-[400px] rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900 sm:col-span-2 sm:grid-cols-2">
-          <span className="relative m-12 sm:order-last min-h-[200px]">
+          <span className="relative m-12 min-h-[200px] sm:order-last">
             <Image src="/torus.webp" alt="Torus" fill />
           </span>
           <div className="flex flex-col items-center justify-center gap-2 p-4 text-center">
@@ -42,7 +42,7 @@ const Features = () => {
             <p className="text-neutral-500">
               We work just like any other proficient team. Drop some tasks in
               our queue and we&apos;ll get them done according to your priority.
-              We make progress on your tasks every workday.
+              We make progress on your tasks every business day.
             </p>
           </div>
         </div>
@@ -72,7 +72,7 @@ const Features = () => {
               It&apos;s all yours, forever
             </h4>
             <p className="text-neutral-500">
-              We&apos;ll give you private access to the Github repo so you can
+              We&apos;ll give you private access to the GitHub repo so you can
               always own and modify what&apos;s rightfully yours.
             </p>
           </div>
