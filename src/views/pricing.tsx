@@ -47,7 +47,7 @@ const Pricing = () => {
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
           Don&apos;t pay another salary
         </h1>
-        <p className="mt-2 text-neutral-500 text-center">
+        <p className="mt-2 text-center text-neutral-500">
           Pre-pay for dev work and pause any time you&apos;re not using it.
         </p>
       </span>
@@ -60,7 +60,7 @@ const Pricing = () => {
       </div>
 
       <motion.div
-        className="grid w-full max-w-[800px] grid-cols-1 gap-12 sm:gap-4 sm:grid-cols-2"
+        className="grid w-full max-w-[800px] grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-4"
         ref={ref}
         animate={isInView ? { y: 0, scale: 1 } : { y: 20, scale: 0.9 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -91,7 +91,9 @@ const Pricing = () => {
             </Badge>
           }
           features={[
-            "Two requests at a time",
+            <>
+              <strong>Two</strong> requests at a time
+            </>,
             "Unlimited work queue",
             "Pause subscription",
             "Unlimited revisions",
@@ -181,7 +183,7 @@ interface PricingCardProps {
   title: string;
   top?: React.ReactNode;
   price: string;
-  features: string[];
+  features: React.ReactNode[];
   tagline?: string;
 }
 
@@ -209,7 +211,7 @@ const PricingCard = ({
       <div className="h-1 w-16 rounded-full bg-green-500" />
       <div className="flex flex-col items-center items-stretch gap-2">
         {features.map((feature) => (
-          <div className="flex items-center gap-2" key={feature}>
+          <div className="flex items-center gap-2" key={feature?.toString()}>
             <IconCheck size={20} className="flex-shrink-0 text-green-500" />
             <span className="text-neutral-500">{feature}</span>
           </div>

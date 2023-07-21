@@ -5,6 +5,8 @@ import { useRef } from "react";
 
 import Button from "@/components/button";
 
+import KanbanAnimation from "./kanban-animation";
+
 const Hero = () => {
   const animationRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -67,13 +69,7 @@ const Hero = () => {
           style={{ rotateX }}
         >
           <div className="flex w-full grow rounded-[2rem] bg-white/20 backdrop-blur-lg dark:bg-black/20">
-            <Image
-              src="/kanban.svg"
-              alt="kanban illustration"
-              height={1024}
-              width={576}
-              className="h-full min-h-[30rem] w-full object-cover md:object-contain"
-            />
+            <KanbanAnimation />
           </div>
         </motion.div>
       </div>

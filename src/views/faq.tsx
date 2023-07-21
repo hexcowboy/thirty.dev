@@ -22,8 +22,8 @@ const faqs = [
         </ol>
         Our speed and quality are attributed to the absence of meetings or
         unnecessary back-and-forths. In the event that you require changes after
-        a request has been completed, you can conveniently add a new request to
-        the queue.
+        a request has been completed, you can simply add a new request to the
+        queue.
       </>
     ),
   },
