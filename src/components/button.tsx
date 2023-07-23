@@ -19,7 +19,7 @@ const Button = ({ variant = "primary", ...props }: Props) => {
       ...props,
       className: twMerge(
         variants[variant],
-        "rounded-2xl px-5 py-2 text-lg font-bold flex items-center gap-2 justify-center",
+        "rounded-2xl px-5 py-2 text-lg font-bold flex items-center gap-2 justify-center disabled:opacity-50 disabled:cursor-not-allowed",
         props.className
       ),
     },

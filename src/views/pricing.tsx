@@ -4,39 +4,17 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRef } from "react";
 
-// import { twMerge } from "tailwind-merge";
 import { Badge } from "@/components/badge";
 import Button from "@/components/button";
-// import { Checkbox } from "@/components/checkbox";
 import { Switch } from "@/components/switch";
-
-// const ethereumFeatures = {
-//   included: ["RainbowKit wallet auth", "Wagmi smart contract integrations"],
-//   excluded: ["Event indexing", "Other wallet auth"],
-// };
-//
-// const supabaseFeatures = {
-//   included: [
-//     "User auth",
-//     "Magic link sign in",
-//     "OAuth provider sign in",
-//     "Database integrations",
-//     "Storage integrations",
-//   ],
-//   excluded: [],
-// };
 
 const Pricing = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
-  // const [isSupabaseChecked, setIsSupabaseChecked] = useState(false);
-  // const [isEthereumChecked, setIsEthereumChecked] = useState(false);
   const [isYearlyPayment, setIsYearlyPayment] = useState(true);
 
   const standardPrice = isYearlyPayment ? 6000 : 7000;
-  //   5999 + (isSupabaseChecked ? 999 : 0) + (isEthereumChecked ? 999 : 0);
   const proPrice = isYearlyPayment ? 9000 : 10000;
-  //   8999 + (isSupabaseChecked ? 999 : 0) + (isEthereumChecked ? 999 : 0);
 
   return (
     <div className="flex w-full flex-col items-center gap-12">
@@ -69,8 +47,8 @@ const Pricing = () => {
           title="Standard"
           price={`$${standardPrice.toLocaleString()}/mo`}
           features={[
-            "One request at a time",
             "Unlimited work queue",
+            "One task at a time",
             "Pause subscription",
             "Unlimited revisions",
             "Unlimited traffic",
@@ -91,10 +69,10 @@ const Pricing = () => {
             </Badge>
           }
           features={[
+            "Unlimited work queue",
             <>
               <strong>Two</strong> requests at a time
             </>,
-            "Unlimited work queue",
             "Pause subscription",
             "Unlimited revisions",
             "Unlimited traffic",
@@ -102,78 +80,6 @@ const Pricing = () => {
           ]}
           tagline="Comparable to $25,000/mo for two senior full-time developers"
         />
-
-        {/* <div className="col-span-1 grid gap-4 rounded-3xl border border-neutral-300 p-4 dark:border-neutral-700 sm:col-span-2 sm:grid-cols-2"> */}
-        {/*   <div className="sm:col-span-2"> */}
-        {/*     <h3 className="text-center text-xl font-bold">Add ons</h3> */}
-        {/*   </div> */}
-        {/*  */}
-        {/*   <div className="rounded-3xl border border-neutral-500 p-2"> */}
-        {/*     <div */}
-        {/*       className={twMerge( */}
-        {/*         "flex grow cursor-pointer select-none items-center gap-2 rounded-2xl bg-neutral-100 px-4 py-2 text-lg font-bold dark:bg-neutral-900", */}
-        {/*         isSupabaseChecked && "bg-green-200 dark:bg-green-700" */}
-        {/*       )} */}
-        {/*       onClick={() => setIsSupabaseChecked(!isSupabaseChecked)} */}
-        {/*     > */}
-        {/*       <div className="flex grow items-center gap-3"> */}
-        {/*         <Checkbox checked={isSupabaseChecked} /> */}
-        {/*         <span>Supabase</span> */}
-        {/*         <span className="ml-auto">+$999/mo</span> */}
-        {/*       </div> */}
-        {/*     </div> */}
-        {/*     <div className="flex flex-col items-center items-stretch gap-2 p-4"> */}
-        {/*       {supabaseFeatures.included.map((feature) => ( */}
-        {/*         <div className="flex items-center gap-2" key={feature}> */}
-        {/*           <IconCheck */}
-        {/*             size={20} */}
-        {/*             className="flex-shrink-0 text-green-500" */}
-        {/*           /> */}
-        {/*           <span className="text-neutral-500">{feature}</span> */}
-        {/*         </div> */}
-        {/*       ))} */}
-        {/*       {supabaseFeatures.excluded.map((feature) => ( */}
-        {/*         <div className="flex items-center gap-2" key={feature}> */}
-        {/*           <IconX size={20} className="flex-shrink-0 text-neutral-500" /> */}
-        {/*           <span className="text-neutral-500">{feature}</span> */}
-        {/*         </div> */}
-        {/*       ))} */}
-        {/*     </div> */}
-        {/*   </div> */}
-        {/*  */}
-        {/*   <div className="rounded-3xl border border-neutral-500 p-2"> */}
-        {/*     <div */}
-        {/*       className={twMerge( */}
-        {/*         "flex grow cursor-pointer select-none items-center gap-2 rounded-2xl bg-neutral-100 px-4 py-2 text-lg font-bold dark:bg-neutral-900", */}
-        {/*         isEthereumChecked && "bg-green-200 dark:bg-green-700" */}
-        {/*       )} */}
-        {/*       onClick={() => setIsEthereumChecked(!isEthereumChecked)} */}
-        {/*     > */}
-        {/*       <div className="flex grow items-center gap-3"> */}
-        {/*         <Checkbox checked={isEthereumChecked} /> */}
-        {/*         <span>Ethereum</span> */}
-        {/*         <span className="ml-auto">+$999/mo</span> */}
-        {/*       </div> */}
-        {/*     </div> */}
-        {/*     <div className="flex flex-col items-center items-stretch gap-2 p-4"> */}
-        {/*       {ethereumFeatures.included.map((feature) => ( */}
-        {/*         <div className="flex items-center gap-2" key={feature}> */}
-        {/*           <IconCheck */}
-        {/*             size={20} */}
-        {/*             className="flex-shrink-0 text-green-500" */}
-        {/*           /> */}
-        {/*           <span className="text-neutral-500">{feature}</span> */}
-        {/*         </div> */}
-        {/*       ))} */}
-        {/*       {ethereumFeatures.excluded.map((feature) => ( */}
-        {/*         <div className="flex items-center gap-2" key={feature}> */}
-        {/*           <IconX size={20} className="flex-shrink-0 text-neutral-500" /> */}
-        {/*           <span className="text-neutral-500">{feature}</span> */}
-        {/*         </div> */}
-        {/*       ))} */}
-        {/*     </div> */}
-        {/*   </div> */}
-        {/* </div> */}
       </motion.div>
     </div>
   );
@@ -184,7 +90,7 @@ interface PricingCardProps {
   top?: React.ReactNode;
   price: string;
   features: React.ReactNode[];
-  tagline?: string;
+  tagline?: React.ReactNode;
 }
 
 const PricingCard = ({

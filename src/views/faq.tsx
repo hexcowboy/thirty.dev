@@ -48,7 +48,7 @@ const faqs = [
       "Submit a new request in the queue specifying what you don't like. The feedback loop is a typical workflow for us and we won't be offended if you want things a different way.",
   },
   {
-    question: "How long will it take to get my project done?",
+    question: "How long will it take to complete my project?",
     answer:
       "Estimates vary depending on request complexity. We work on your project every business day. Typically landing pages take five business days.",
   },
