@@ -20,7 +20,7 @@ const KanbanAnimation = () => {
   ]);
 
   return (
-    <div className="grid w-full grid-cols-1 gap-4 overflow-hidden p-4 lg:aspect-[7/3] lg:grid-cols-3">
+    <div className="grid w-full select-none grid-cols-1 gap-4 overflow-hidden p-4 lg:aspect-[7/3] lg:grid-cols-3">
       <KanbanColumn title="Queue">
         <Reorder.Group
           values={items1}
@@ -99,7 +99,7 @@ const KanbanItem = ({
   return (
     <Reorder.Item
       value={item}
-      className="relative flex cursor-ns-resize grid-cols-2 flex-col gap-1 gap-4 rounded-xl bg-neutral-100 p-4 text-left dark:bg-neutral-900"
+      className="relative flex cursor-pointer grid-cols-2 flex-col gap-1 gap-4 rounded-xl bg-neutral-100 p-4 text-left dark:bg-neutral-900"
     >
       <div className="flex items-center justify-between">
         <div className="text-sm font-bold">{item}</div>

@@ -33,7 +33,7 @@ const faqs = [
       "You may pause your subscription at any time. We will stop working on your task queue and you will not be billed. You may resume your subscription at any time and we'll begin working where we left off.",
   },
   {
-    question: "Why don't you work on existing project?",
+    question: "Why don't you work on existing projects?",
     answer:
       "We only work on projects started by us. We do this to ensure we can deliver fast without having to navigate an unfamiliar codebase.",
   },
