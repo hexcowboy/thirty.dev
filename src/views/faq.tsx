@@ -60,7 +60,7 @@ const faqs = [
   {
     question: "What if I request something you cannot do?",
     answer:
-      "We will simply reach out to you and let you know. If you have more tasks in the queue, we will work on those instead.",
+      "We will simply reach out to you and let you know. If you have more tasks in the queue, we will work on those in the meantime.",
   },
 ];
 
