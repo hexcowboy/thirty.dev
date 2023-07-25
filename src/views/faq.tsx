@@ -57,6 +57,11 @@ const faqs = [
     answer:
       "We are engineers, not designers. Please come with a design handy. We take all forms of designs including Figma, Adobe, Sketch, Framer, and more. We will even work off your notepad scratches if that's how you roll.",
   },
+  {
+    question: "What if I request something you cannot do?",
+    answer:
+      "We will simply reach out to you and let you know. If you have more tasks in the queue, we will work on those instead.",
+  },
 ];
 
 const FAQ = () => {

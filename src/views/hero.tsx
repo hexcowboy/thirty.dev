@@ -1,11 +1,13 @@
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 import Button from "@/components/button";
 
 import KanbanAnimation from "./kanban-animation";
+import CalComLogo from "@/assets/cal-com-logo";
 
 const Hero = () => {
   const animationRef = useRef(null);
@@ -18,20 +20,20 @@ const Hero = () => {
 
   return (
     <>
-      <span className="max-w-screen absolute left-0 top-60 -z-10 h-[800px] h-full w-full overflow-hidden opacity-[13%]">
+      <span className="max-w-screen absolute left-0 top-52 -z-10 hidden h-[720px] w-full opacity-[13%] md:block">
         <motion.span
-          className="absolute left-0 h-full w-[30%] py-20"
-          initial={{ opacity: 0, rotate: -45 }}
-          animate={{ opacity: 1, rotate: 0 }}
+          className="absolute left-0 h-full w-[30%]"
+          initial={{ opacity: 0, rotate: -45, left: -100 }}
+          animate={{ opacity: 1, rotate: 0, left: 0 }}
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 0, originY: 1 }}
         >
           <Image src="/hero-left.webp" alt="liquid illustration" fill />
         </motion.span>
         <motion.span
-          className="absolute right-0 h-full w-[30%] py-20"
-          initial={{ opacity: 0, rotate: 45 }}
-          animate={{ opacity: 1, rotate: 0 }}
+          className="absolute right-0 h-full w-[30%]"
+          initial={{ opacity: 0, rotate: 45, right: -100 }}
+          animate={{ opacity: 1, rotate: 0, right: 0 }}
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 1, originY: 1 }}
         >
@@ -56,7 +58,9 @@ const Hero = () => {
           Pay monthly for ⅓ the price of an engineer salary.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button variant="green">Choose Plan</Button>
+          <Link href="/pricing">
+            <Button variant="green">Choose Plan</Button>
+          </Link>
           <Button variant="secondary" icon={<IconPlayerPlayFilled size={18} />}>
             Watch Video
           </Button>

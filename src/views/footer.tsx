@@ -1,6 +1,5 @@
 import { IconLoader2 } from "@tabler/icons-react";
 import clsx from "clsx";
-import Image from "next/image";
 import { useState } from "react";
 
 import Icon from "@/assets/icon";
@@ -46,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center gap-20 rounded-[60px] bg-neutral-100/50 p-12 dark:bg-neutral-900/50 md:flex-row sm:p-20">
+    <footer className="flex flex-col items-center gap-20 rounded-[60px] bg-neutral-100/50 p-12 dark:bg-neutral-900/50 sm:p-20 md:flex-row">
       <div className="m-auto flex max-w-[270px] flex-col gap-4">
         <Icon className="w-12 fill-black dark:fill-white" />
         <p>{description}</p>

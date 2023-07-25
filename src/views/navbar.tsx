@@ -24,7 +24,9 @@ const Navbar = () => {
         <Link href="/pricing">Pricing</Link>
       </div>
       <span className="flex flex-1 justify-end">
-        <Button className="hidden sm:block">Dashboard</Button>
+        <Link href="/dashboard">
+          <Button className="hidden sm:block">Dashboard</Button>
+        </Link>
       </span>
     </motion.nav>
   );
