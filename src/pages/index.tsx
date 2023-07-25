@@ -1,14 +1,11 @@
-import { lazy } from "react";
-
+import FAQ from "@/views/faq";
+import Features from "@/views/features";
+import Footer from "@/views/footer";
 import Hero from "@/views/hero";
-
-const FAQ = lazy(() => import("@/views/faq"));
-const Features = lazy(() => import("@/views/features"));
-const Footer = lazy(() => import("@/views/footer"));
-const Ideas = lazy(() => import("@/views/ideas"));
-const Navbar = lazy(() => import("@/views/navbar"));
-const Pricing = lazy(() => import("@/views/pricing"));
-const TrustedBy = lazy(() => import("@/views/trusted-by"));
+import Ideas from "@/views/ideas";
+import Navbar from "@/views/navbar";
+import Pricing from "@/views/pricing";
+import TrustedBy from "@/views/trusted-by";
 
 export default function Home() {
   return (
