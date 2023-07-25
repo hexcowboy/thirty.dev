@@ -20,8 +20,8 @@ const Navbar = () => {
         </Link>
       </span>
       <div className="relative hidden grow justify-center gap-8 text-neutral-600 dark:text-neutral-400 sm:flex">
-        <span>Features</span>
-        <span>Pricing</span>
+        <Link href="/features">Features</Link>
+        <Link href="/pricing">Pricing</Link>
       </div>
       <span className="flex flex-1 justify-end">
         <Button className="hidden sm:block">Dashboard</Button>

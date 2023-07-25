@@ -1,22 +1,18 @@
-import { Inter } from "next/font/google";
-import { twMerge } from "tailwind-merge";
+import { lazy } from "react";
 
-import FAQ from "@/views/faq";
-import Features from "@/views/features";
-import Footer from "@/views/footer";
 import Hero from "@/views/hero";
-import Ideas from "@/views/ideas";
-import Navbar from "@/views/navbar";
-import Pricing from "@/views/pricing";
-import TrustedBy from "@/views/trusted-by";
 
-const font = Inter({
-  subsets: ["latin"],
-});
+const FAQ = lazy(() => import("@/views/faq"));
+const Features = lazy(() => import("@/views/features"));
+const Footer = lazy(() => import("@/views/footer"));
+const Ideas = lazy(() => import("@/views/ideas"));
+const Navbar = lazy(() => import("@/views/navbar"));
+const Pricing = lazy(() => import("@/views/pricing"));
+const TrustedBy = lazy(() => import("@/views/trusted-by"));
 
 export default function Home() {
   return (
-    <span className={twMerge("flex flex-col items-center", font.className)}>
+    <span className="flex flex-col items-center">
       <main className="flex w-full max-w-[1200px] flex-col gap-32 px-8 py-12 sm:px-12">
         <Navbar />
         <Hero />

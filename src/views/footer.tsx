@@ -1,5 +1,6 @@
 import { IconLoader2 } from "@tabler/icons-react";
 import clsx from "clsx";
+import Image from "next/image";
 import { useState } from "react";
 
 import Icon from "@/assets/icon";
@@ -45,15 +46,15 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center justify-between gap-12 rounded-[60px] bg-neutral-100/50 p-12 dark:bg-neutral-900/50 sm:p-20 lg:flex-row">
-      <div className="flex max-w-[270px] flex-col gap-4">
+    <footer className="flex flex-col items-center gap-20 rounded-[60px] bg-neutral-100/50 p-12 dark:bg-neutral-900/50 md:flex-row sm:p-20">
+      <div className="m-auto flex max-w-[270px] flex-col gap-4">
         <Icon className="w-12 fill-black dark:fill-white" />
         <p>{description}</p>
       </div>
       <div className="flex grow flex-col items-center gap-4">
         <h4 className="text-center text-xl font-bold">Stay in the loop</h4>
         <form
-          className="flex max-w-[500px] gap-4 rounded-3xl border border-neutral-200 p-2 dark:border-neutral-800"
+          className="flex max-w-[500px] flex-col items-stretch gap-2 rounded-3xl border border-neutral-200 p-2 dark:border-neutral-800 sm:flex-row sm:gap-4"
           onSubmit={handleSubmit}
         >
           <Input
@@ -62,10 +63,11 @@ const Footer = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            className="min-w-[200px]"
           />
           <Button
             className={clsx(
-              "text-md w-[140px]",
+              "text-md min-w-[140px]",
               state === "success" && "bg-green-700 dark:bg-green-300",
               state === "error" && "bg-red-700 dark:bg-red-300"
             )}

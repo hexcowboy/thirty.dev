@@ -1,19 +1,14 @@
-import {
-  IconCheck,
-  IconLink,
-  IconLoader,
-  IconLoader2,
-} from "@tabler/icons-react";
+import { IconCheck, IconLink, IconLoader2 } from "@tabler/icons-react";
 import { Reorder } from "framer-motion";
 import { useState } from "react";
 
 const KanbanAnimation = () => {
   const [items1, setItems1] = useState([
-    "Create my landing page",
+    "Implement our AI chat UI",
     "Create my blog site",
     "Implement animations",
   ]);
-  const [items2, setItems2] = useState(["Implement our AI chat UI"]);
+  const [items2, setItems2] = useState(["Create my landing page"]);
   const [items3, setItems3] = useState([
     "Create analytics dashboard",
     "Build a UI kit",
