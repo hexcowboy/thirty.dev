@@ -17,14 +17,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Thirty</title>
         <meta name="description" content={description} />
       </Head>
-      <SessionContextProvider
-        supabaseClient={supabaseClient}
-        initialSession={pageProps.initialSession}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <SessionContextProvider
+          supabaseClient={supabaseClient}
+          initialSession={pageProps.initialSession}
+        >
           <Component {...pageProps} />
-        </ThemeProvider>
-      </SessionContextProvider>
+        </SessionContextProvider>
+      </ThemeProvider>
     </>
   );
 }

@@ -1,12 +1,8 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-import CalComLogo from "@/assets/cal-com-logo";
-import EternalLogo from "@/assets/eternal-logo";
-import InterestedLogo from "@/assets/interested-logo";
-import SupDucksLogo from "@/assets/supducks-logo";
-import ZeroDevLogo from "@/assets/zerodev-logo";
 import Ticker from "@/components/ticker";
 
 const TrustedBy = () => {
@@ -27,21 +23,31 @@ const TrustedBy = () => {
     >
       <div className="text-2xl text-neutral-500">We contributed to</div>
       <div className="relative w-screen">
-        <Ticker duration={7}>
+        <Ticker duration={20}>
           <Tag link="https://cal.com">
-            <CalComLogo className="h-[18px] fill-neutral-500" />
+            <span className="relative h-[22px] w-[100px]">
+              <Image src="/logos/cal-com-logo.svg" alt="Cal.com logo" fill />
+            </span>
           </Tag>
           <Tag link="https://zerodev.app">
-            <ZeroDevLogo className="h-[18px] fill-neutral-500" />
+            <span className="relative h-[22px] w-[100px]">
+              <Image src="/logos/zerodev-logo.svg" alt="ZeroDev logo" fill />
+            </span>
           </Tag>
           <Tag link="https://eternal.gg">
-            <EternalLogo className="h-[18px] fill-neutral-500 stroke-neutral-500" />
+            <span className="relative h-[22px] w-[100px]">
+              <Image src="/logos/eternal-logo.svg" alt="Eternal.gg logo" fill />
+            </span>
           </Tag>
           <Tag link="https://www.supducks.com/">
-            <SupDucksLogo className="h-[18px] fill-neutral-500" />
+            <span className="relative h-[22px] w-[100px]">
+              <Image src="/logos/supducks-logo.svg" alt="SupDucks logo" fill />
+            </span>
           </Tag>
           <Tag link="https://interested.fyi/">
-            <InterestedLogo className="h-[18px] fill-neutral-500" />
+            <span className="relative h-[22px] w-[100px]">
+              <Image src="/logos/interested-logo.svg" alt="Interested.fyi logo" fill />
+            </span>
           </Tag>
         </Ticker>
         <div className="pointer-events-none absolute left-0 top-0 h-full w-1/4 bg-gradient-to-r from-white to-transparent dark:from-black" />

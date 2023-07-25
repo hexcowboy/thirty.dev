@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 import Icon from "@/assets/icon";
@@ -6,12 +5,7 @@ import Button from "@/components/button";
 
 const Navbar = () => {
   return (
-    <motion.nav
-      className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
+    <nav className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0">
       <span className="flex flex-1">
         <Link href="/">
           <div className="flex items-center gap-2">
@@ -28,7 +22,7 @@ const Navbar = () => {
           <Button className="hidden sm:block">Dashboard</Button>
         </Link>
       </span>
-    </motion.nav>
+    </nav>
   );
 };
 

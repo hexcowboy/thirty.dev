@@ -2,12 +2,11 @@ import { IconPlayerPlayFilled } from "@tabler/icons-react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "@/components/button";
 
 import KanbanAnimation from "./kanban-animation";
-import CalComLogo from "@/assets/cal-com-logo";
 
 const Hero = () => {
   const animationRef = useRef(null);
@@ -18,33 +17,53 @@ const Hero = () => {
   const rotateX_ = useTransform(scrollYProgress, [0, 1], [14, 0]);
   const rotateX = useSpring(rotateX_, { stiffness: 400, damping: 90 });
 
+  const [leftLoaded, setLeftLoaded] = useState(false);
+  const [rightLoaded, setRightLoaded] = useState(false);
+  const [bothLoaded, setBothLoaded] = useState(false);
+
+  useEffect(() => {
+    if (leftLoaded && rightLoaded) {
+      setBothLoaded(true);
+    }
+  }, [leftLoaded, rightLoaded]);
+
   return (
     <>
       <span className="max-w-screen absolute left-0 top-52 -z-10 hidden h-[720px] w-full opacity-[13%] md:block">
         <motion.span
           className="absolute left-0 h-full w-[30%]"
-          initial={{ opacity: 0, rotate: -45, left: -100 }}
-          animate={{ opacity: 1, rotate: 0, left: 0 }}
+          initial={{ opacity: 0, rotate: -25, left: -100 }}
+          animate={leftLoaded ? { opacity: 1, rotate: 0, left: 0 } : {}}
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 0, originY: 1 }}
         >
-          <Image src="/hero-left.webp" alt="liquid illustration" fill />
+          <Image
+            src="/hero-left.webp"
+            alt="liquid illustration"
+            fill
+            onLoad={() => setLeftLoaded(true)}
+          />
         </motion.span>
         <motion.span
           className="absolute right-0 h-full w-[30%]"
-          initial={{ opacity: 0, rotate: 45, right: -100 }}
-          animate={{ opacity: 1, rotate: 0, right: 0 }}
+          initial={{ opacity: 0, rotate: 25, right: -100 }}
+          animate={rightLoaded ? { opacity: 1, rotate: 0, right: 0 } : {}}
           transition={{ duration: 1.3, ease: "easeOut" }}
           style={{ originX: 1, originY: 1 }}
         >
-          <Image src="/hero-right.webp" alt="liquid illustration" fill />
+          <Image
+            src="/hero-right.webp"
+            alt="liquid illustration"
+            fill
+            onLoad={() => setRightLoaded(true)}
+          />
         </motion.span>
       </span>
 
       <motion.div
         className="flex min-h-[20rem] flex-col items-center justify-center gap-6 text-center"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={bothLoaded ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <h1 className="max-w-[40rem] text-4xl font-bold sm:text-5xl">
