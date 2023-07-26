@@ -19,7 +19,8 @@ const Pricing = () => {
   return (
     <div className="flex w-full flex-col items-center gap-12">
       <span className="flex flex-col items-center gap-3">
-        <h2 className="max-w-[40rem] text-xl font-bold text-green-500 sm:text-2xl">
+        <h2 className="relative max-w-[40rem] text-xl font-bold text-green-500 sm:text-2xl">
+          <span className="absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] w-screen -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600/10 to-white blur-2xl dark:to-black" />
           Pricing
         </h2>
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
