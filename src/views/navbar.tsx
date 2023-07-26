@@ -1,11 +1,21 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 import Icon from "@/assets/icon";
 import Button from "@/components/button";
 
-const Navbar = () => {
+interface Props {
+  animate?: boolean;
+}
+
+const Navbar = ({ animate }: Props) => {
   return (
-    <nav className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0">
+    <motion.nav
+      className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0"
+      initial={animate ? { opacity: 0, y: -20 } : undefined}
+      animate={animate ? { opacity: 1, y: 0 } : undefined}
+      transition={{ duration: 0.5 }}
+    >
       <span className="flex flex-1">
         <Link href="/">
           <div className="flex items-center gap-2">
@@ -22,7 +32,7 @@ const Navbar = () => {
           <Button className="hidden sm:block">Dashboard</Button>
         </Link>
       </span>
-    </nav>
+    </motion.nav>
   );
 };
 

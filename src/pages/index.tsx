@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <span className="flex flex-col items-center">
       <main className="flex w-full max-w-[1200px] flex-col gap-32 px-8 py-12 sm:px-12">
-        <Navbar />
+        <Navbar animate />
         <Hero />
         <TrustedBy />
         <Features />

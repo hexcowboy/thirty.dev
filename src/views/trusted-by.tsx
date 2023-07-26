@@ -2,8 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-
-import Ticker from "@/components/ticker";
+import Marquee from "react-fast-marquee";
 
 const TrustedBy = () => {
   const ref = useRef(null);
@@ -23,35 +22,50 @@ const TrustedBy = () => {
     >
       <div className="text-2xl text-neutral-500">We contributed to</div>
       <div className="relative w-screen">
-        <Ticker duration={20}>
+        <Marquee autoFill pauseOnHover>
           <Tag link="https://cal.com">
-            <span className="relative h-[22px] w-[100px]">
-              <Image src="/logos/cal-com-logo.svg" alt="Cal.com logo" fill />
-            </span>
+            <Image
+              src="/logos/cal-com-logo.webp"
+              alt="Cal.com logo"
+              height={22}
+              width={105}
+            />
           </Tag>
           <Tag link="https://zerodev.app">
-            <span className="relative h-[22px] w-[100px]">
-              <Image src="/logos/zerodev-logo.svg" alt="ZeroDev logo" fill />
-            </span>
+            <Image
+              src="/logos/zerodev-logo.webp"
+              alt="ZeroDev logo"
+              height={22}
+              width={83}
+            />
           </Tag>
           <Tag link="https://eternal.gg">
-            <span className="relative h-[22px] w-[100px]">
-              <Image src="/logos/eternal-logo.svg" alt="Eternal.gg logo" fill />
-            </span>
+            <Image
+              src="/logos/eternal-logo.webp"
+              alt="Eternal.gg logo"
+              height={22}
+              width={141}
+            />
           </Tag>
           <Tag link="https://www.supducks.com/">
-            <span className="relative h-[22px] w-[100px]">
-              <Image src="/logos/supducks-logo.svg" alt="SupDucks logo" fill />
-            </span>
+            <Image
+              src="/logos/supducks-logo.webp"
+              alt="SupDucks logo"
+              height={22}
+              width={137}
+            />
           </Tag>
           <Tag link="https://interested.fyi/">
-            <span className="relative h-[22px] w-[100px]">
-              <Image src="/logos/interested-logo.svg" alt="Interested.fyi logo" fill />
-            </span>
+            <Image
+              src="/logos/interested-logo.webp"
+              alt="Interested.fyi logo"
+              height={22}
+              width={126}
+            />
           </Tag>
-        </Ticker>
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-1/4 bg-gradient-to-r from-white to-transparent dark:from-black" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-1/4 bg-gradient-to-l from-white to-transparent dark:from-black" />
+        </Marquee>
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-1/4 bg-gradient-to-r from-white to-transparent dark:from-black" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-1/4 bg-gradient-to-l from-white to-transparent dark:from-black" />
       </div>
     </motion.div>
   );
