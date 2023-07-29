@@ -20,7 +20,7 @@ const TrustedBy = () => {
       transition={{ duration: 0.5 }}
       style={{ scale }}
     >
-      <div className="text-2xl text-neutral-500">We contributed to</div>
+      <div className="text-2xl text-neutral-500">We worked on</div>
       <div className="relative w-screen">
         <Marquee autoFill pauseOnHover>
           <Tag link="https://cal.com">

@@ -1,14 +1,18 @@
+import { Session } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 import Icon from "@/assets/icon";
 import Button from "@/components/button";
+import User from "@/components/user";
 
 interface Props {
+  user?: Session["user"] | null;
   animate?: boolean;
+  isDashboard?: boolean;
 }
 
-const Navbar = ({ animate }: Props) => {
+const Navbar = ({ user = null, animate, isDashboard = false }: Props) => {
   return (
     <motion.nav
       className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0"
@@ -23,15 +27,21 @@ const Navbar = ({ animate }: Props) => {
           </div>
         </Link>
       </span>
-      <div className="relative hidden grow justify-center gap-8 text-neutral-600 dark:text-neutral-400 sm:flex">
-        <Link href="/features">Features</Link>
-        <Link href="/pricing">Pricing</Link>
-      </div>
-      <span className="flex flex-1 justify-end">
-        <Link href="/dashboard">
-          <Button className="hidden sm:block">Dashboard</Button>
-        </Link>
-      </span>
+      {isDashboard ? (
+        !!user && <User user={user} />
+      ) : (
+        <>
+          <div className="relative hidden grow justify-center gap-8 text-neutral-600 dark:text-neutral-400 sm:flex">
+            <Link href="/features">Features</Link>
+            <Link href="/pricing">Pricing</Link>
+          </div>
+          <span className="flex flex-1 justify-end">
+            <Link href="/dashboard">
+              <Button className="hidden sm:block">Dashboard</Button>
+            </Link>
+          </span>
+        </>
+      )}
     </motion.nav>
   );
 };
