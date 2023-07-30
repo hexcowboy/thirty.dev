@@ -1,18 +1,24 @@
-import { Session } from "@supabase/supabase-js";
+import { User as SupabaseUser } from "@supabase/auth-helpers-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useContext } from "react";
 
 import Icon from "@/assets/icon";
 import Button from "@/components/button";
 import User from "@/components/user";
+import { UserContext } from "@/providers/user-prodiver";
 
 interface Props {
-  user?: Session["user"] | null;
+  user?: SupabaseUser | null;
   animate?: boolean;
   isDashboard?: boolean;
 }
 
-const Navbar = ({ user = null, animate, isDashboard = false }: Props) => {
+const Navbar = ({ animate, isDashboard = false }: Props) => {
+  const {
+    state: { user },
+  } = useContext(UserContext);
+
   return (
     <motion.nav
       className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:gap-0"

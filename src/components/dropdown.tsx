@@ -77,7 +77,7 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={twMerge(
-      "relative flex flex cursor-pointer select-none items-center gap-2 rounded-lg px-2 py-1.5 outline-none transition-colors focus:bg-neutral-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-neutral-800",
+      "relative flex flex cursor-pointer select-none items-center gap-2 rounded-lg px-4 py-1.5 outline-none transition-colors focus:bg-neutral-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-neutral-800",
       className
     )}
     {...props}

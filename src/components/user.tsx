@@ -1,50 +1,57 @@
-import { Session } from "@supabase/supabase-js";
-import { IconLogout, IconUser, IconUserCircle, IconWallet } from "@tabler/icons-react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { User, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { IconUserCircle } from "@tabler/icons-react";
+import { useContext } from "react";
 
 import Button from "@/components/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/dropdown";
-import { useBreakpoint } from "@/hooks/use-breakpoint";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/modal";
+import { UserContext } from "@/providers/user-prodiver";
 
 interface Props {
-  user: Session["user"];
+  user: User
 }
 
 const User = ({ user }: Props) => {
-  const isMobile = useBreakpoint("sm", "max");
+  const supabase = useSupabaseClient();
+  const { dispatch } = useContext(UserContext);
+
+  const handleSignOut = async () => {
+    const res = await supabase.auth.signOut();
+
+    if (res.error) {
+      console.error(res.error);
+      return;
+    }
+
+    dispatch({ type: "CLEAR" });
+  };
+
+  if (!user) {
+    return null;
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        asChild
-        className="[&:has(:focus-visible)]:ring-red-500"
-      >
+    <Dialog>
+      <DialogTrigger asChild>
         <Button
           variant="secondaryBorder"
-          className="font-semibold"
+          className="text-md font-semibold"
           icon={<IconUserCircle stroke={2} className="text-green-500" />}
         >
           {user.email}
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align={isMobile ? "center" : "end"}>
-        <DropdownMenuItem>
-          <IconWallet size={20} />
-          Billing
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-500">
-          <IconLogout size={20} />
-          Log out
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DialogTrigger>
+      <DialogContent withoutClose>
+        <div className="flex flex-col gap-2">
+          <Button variant="red" onClick={handleSignOut}>
+            Sign out
+          </Button>
+          <DialogPrimitive.Close className="flex" asChild>
+            <Button variant="tertiary">Close</Button>
+          </DialogPrimitive.Close>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 
