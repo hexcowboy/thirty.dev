@@ -50,10 +50,10 @@ const Footer = () => {
         <Icon className="w-12 border-b border-green-500 fill-black dark:fill-white" />
         <p>{description}</p>
       </div>
-      <div className="flex grow flex-col items-center gap-4">
+      <div className="flex w-full grow flex-col items-center gap-4">
         <h4 className="text-center text-xl font-bold">Stay in the loop</h4>
         <form
-          className="flex max-w-[500px] flex-col items-stretch gap-2 rounded-3xl border border-neutral-200 p-2 dark:border-neutral-800 sm:flex-row sm:gap-4"
+          className="flex w-full max-w-[500px] flex-col items-stretch gap-2 rounded-3xl border border-neutral-200 p-2 dark:border-neutral-800 sm:flex-row sm:gap-4"
           onSubmit={handleSubmit}
         >
           <Input
@@ -62,7 +62,7 @@ const Footer = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="min-w-[200px]"
+            className="min-w-[200px] text-center sm:text-left"
           />
           <Button
             className={clsx(

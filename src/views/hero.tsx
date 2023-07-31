@@ -71,12 +71,12 @@ const Hero = () => {
           <br />
           Frontend Development
         </h1>
-        <p className="max-w-[38rem] text-neutral-700 dark:text-neutral-400">
+        <p className="max-w-[18rem] text-neutral-700 dark:text-neutral-400 sm:max-w-[38rem]">
           Build web apps without hiring, firing, or dealing with lazy engineers.
           <br />
           Pay monthly for ⅓ the price of an engineer salary.
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Link href="/pricing">
             <Button variant="green">Choose Plan</Button>
           </Link>

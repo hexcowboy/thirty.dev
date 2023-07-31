@@ -20,11 +20,24 @@ const faqs = [
           <li>We work on your tasks from top to bottom.</li>
           <li>You get an email when a task has been completed.</li>
         </ol>
-        Our speed and quality are attributed to the absence of meetings or
-        unnecessary back-and-forths. In the event that you require changes after
-        a request has been completed, you can simply add a new request to the
-        queue.
       </>
+    ),
+  },
+  {
+    question: "Why is it so inexpensive?",
+    answer: (
+      <div className="flex flex-col gap-3">
+        <p>
+          Our speed and quality are attributed to the absence of meetings or
+          unnecessary back-and-forths. In the event that you require changes
+          after a request has been completed, you can simply add a new request
+          to the queue.
+        </p>
+        <p>
+          Because of this, we are able to work on multiple projects at once and
+          keep our costs low.
+        </p>
+      </div>
     ),
   },
   {
@@ -35,7 +48,7 @@ const faqs = [
   {
     question: "Why don't you work on existing projects?",
     answer:
-      "We only work on projects started by us. We do this to ensure we can deliver fast without having to navigate an unfamiliar codebase.",
+      "We only work on codebases created by us. We do this to ensure we can deliver fast without having to navigate an unfamiliar codebase.",
   },
   {
     question: "Why don't you offer backend services?",

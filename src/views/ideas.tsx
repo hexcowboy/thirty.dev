@@ -64,7 +64,7 @@ const Ideas = () => {
         <h2 className="max-w-[40rem] text-xl font-bold text-green-500 sm:text-2xl">
           Projects
         </h2>
-        <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
+        <h1 className="max-w-[44rem] sm:text-left text-center text-4xl font-bold sm:text-5xl">
           You request, we build
         </h1>
         <p className="mt-2 text-center text-neutral-500 sm:text-left">
