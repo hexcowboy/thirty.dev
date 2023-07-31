@@ -120,7 +120,7 @@ const PricingCard = ({
         {features.map((feature) => (
           <div className="flex items-center gap-2" key={feature?.toString()}>
             <IconCheck size={20} className="flex-shrink-0 text-green-500" />
-            <span className="text-neutral-500">{feature}</span>
+            <span className="text-neutral-800 dark:text-neutral-200">{feature}</span>
           </div>
         ))}
       </div>

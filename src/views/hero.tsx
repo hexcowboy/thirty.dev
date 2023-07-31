@@ -63,7 +63,7 @@ const Hero = () => {
       <motion.div
         className="flex min-h-[20rem] flex-col items-center justify-center gap-6 text-center"
         initial={{ opacity: 0, y: -20 }}
-        animate={bothLoaded ? { opacity: 1, y: 0 } : {}}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <h1 className="max-w-[40rem] text-4xl font-bold sm:text-5xl">

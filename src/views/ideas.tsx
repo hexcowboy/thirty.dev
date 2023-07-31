@@ -20,8 +20,10 @@ const Ideas = () => {
   const offset2 = useSpring(offset2_, springParams);
   const offset3_ = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const offset3 = useSpring(offset3_, springParams);
-  const offset4_ = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const offset4_ = useTransform(scrollYProgress, [0, 1], [0, 240]);
   const offset4 = useSpring(offset4_, springParams);
+  const offset5_ = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const offset5 = useSpring(offset5_, springParams);
 
   return (
     <div className="grid w-full gap-12 sm:my-36 sm:grid-cols-2" ref={pageRef}>
@@ -49,6 +51,12 @@ const Ideas = () => {
           style={{ y: offset4, opacity }}
         >
           <p className="text-3xl font-bold">AI Chat</p>
+        </motion.div>
+        <motion.div
+          className="absolute rounded-3xl bg-neutral-100 p-8 dark:bg-neutral-900"
+          style={{ y: offset5, opacity }}
+        >
+          <p className="text-3xl font-bold">E-commerce</p>
         </motion.div>
       </div>
 
