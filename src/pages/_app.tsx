@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState } from "react";
 
+import { Toaster } from "@/components/toaster";
 import { description } from "@/constants";
 import { ThemeProvider } from "@/providers/theme-provider";
 import "@/styles/globals.css";
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
           initialSession={pageProps.initialSession}
         >
           <Component {...pageProps} />
+          <Toaster />
         </SessionContextProvider>
       </ThemeProvider>
     </>

@@ -23,3 +23,7 @@ body {
     color: #000;
   }
 }
+
+iframe {
+  outline: none;
+}

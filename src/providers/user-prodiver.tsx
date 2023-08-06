@@ -1,9 +1,14 @@
 import { useUser } from "@supabase/auth-helpers-react";
-import { Session, User } from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import React, { createContext, useEffect, useReducer } from "react";
 
 interface UserState {
-  user: User| null;
+  user: User | null;
 }
 
 type ActionType = { type: "SET"; payload: User } | { type: "CLEAR" };
@@ -49,11 +54,20 @@ export const UserProvider: React.FC<Props> = ({ children, user = null }) => {
   );
 };
 
-export const withUserProvider = (
-  Component: React.FC,
-  user: User
-) => {
-  const WithUserProvider: React.FC = (props) => {
+type AdditionalProps = Record<string, any>;
+
+type SSProps = InferGetServerSidePropsType<
+  GetServerSideProps<
+    {
+      user: User | null;
+    } & AdditionalProps
+  >
+>;
+
+export const withUserProviderPage = (
+  Component: (_: any) => JSX.Element
+): NextPage<SSProps> => {
+  const WithUserProvider: NextPage<SSProps> = ({ user, ...props }) => {
     return (
       <UserProvider user={user}>
         <Component {...props} />

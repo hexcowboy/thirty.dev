@@ -38,16 +38,41 @@ export interface Database {
         Row: {
           created_at: string
           email: string
+          subscribed: boolean
         }
         Insert: {
           created_at?: string
           email: string
+          subscribed?: boolean
         }
         Update: {
           created_at?: string
           email?: string
+          subscribed?: boolean
         }
         Relationships: []
+      }
+      users_stripe: {
+        Row: {
+          stripe_customer_id: string
+          user_id: string
+        }
+        Insert: {
+          stripe_customer_id: string
+          user_id: string
+        }
+        Update: {
+          stripe_customer_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "users_stripe_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

@@ -8,10 +8,14 @@ import { Badge } from "@/components/badge";
 import Button from "@/components/button";
 import { Switch } from "@/components/switch";
 
-const Pricing = () => {
+interface Props {
+  isYearlyPayment?: boolean;
+}
+
+const Pricing = ({ isYearlyPayment: isYearlyPayment_ = true }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
-  const [isYearlyPayment, setIsYearlyPayment] = useState(true);
+  const [isYearlyPayment, setIsYearlyPayment] = useState(isYearlyPayment_);
 
   const standardPrice = isYearlyPayment ? 6000 : 7000;
   const proPrice = isYearlyPayment ? 9000 : 10000;
@@ -20,7 +24,7 @@ const Pricing = () => {
     <div className="flex w-full flex-col items-center gap-12">
       <span className="flex flex-col items-center gap-3">
         <h2 className="relative max-w-[40rem] text-xl font-bold text-green-500 sm:text-2xl">
-          <span className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[500px] w-screen -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600/10 to-white blur-2xl dark:to-black" />
+          <span className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[300px] w-screen -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-radial from-green-600/10 to-white blur-2xl dark:to-black" />
           Pricing
         </h2>
         <h1 className="max-w-[44rem] text-center text-4xl font-bold sm:text-5xl">
@@ -120,7 +124,9 @@ const PricingCard = ({
         {features.map((feature) => (
           <div className="flex items-center gap-2" key={feature?.toString()}>
             <IconCheck size={20} className="flex-shrink-0 text-green-500" />
-            <span className="text-neutral-800 dark:text-neutral-200">{feature}</span>
+            <span className="text-neutral-800 dark:text-neutral-200">
+              {feature}
+            </span>
           </div>
         ))}
       </div>

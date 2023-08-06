@@ -1,15 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
 import type { NextApiRequest, NextApiResponse } from "next";
 import z from "zod";
 
-import { env } from "@/env.mjs";
-import { Database } from "@/models/supabase.types";
-
-const supabase = createClient<Database>(
-  env.NEXT_PUBLIC_SUPABASE_URL,
-  env.SUPABASE_SECRET_KEY,
-  { auth: { persistSession: false } }
-);
+import { supabase } from "@/server/supabase";
 
 export default async function handler(
   req: NextApiRequest,

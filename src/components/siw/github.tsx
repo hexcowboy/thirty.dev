@@ -1,14 +1,11 @@
-import { SupabaseClient } from "@supabase/supabase-js";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { IconBrandGithub } from "@tabler/icons-react";
 
 import Button from "@/components/button";
-import { Database } from "@/models/supabase.types";
 
-interface Props {
-  supabase: SupabaseClient<Database>;
-}
+const SignInWithGithub = () => {
+  const supabase = useSupabaseClient();
 
-const SignInWithGithub = ({ supabase }: Props) => {
   const signInWithGitHub = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "github",
@@ -19,7 +16,7 @@ const SignInWithGithub = ({ supabase }: Props) => {
   };
 
   return (
-    <Button onClick={signInWithGitHub} icon={<IconBrandGithub stroke={3} />}>
+    <Button onClick={signInWithGitHub} icon={<IconBrandGithub stroke={2} />}>
       Sign in with GitHub
     </Button>
   );
